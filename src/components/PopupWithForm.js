@@ -1,4 +1,4 @@
-function PopupWithForms(props) {
+function PopupWithForm(props) {
   return (
     <div
       className={`modal modal_type_${props.moldalType} ${
@@ -32,4 +32,4 @@ function PopupWithForms(props) {
   );
 }
 
-export default PopupWithForms;
+export default PopupWithForm;
