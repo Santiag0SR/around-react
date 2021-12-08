@@ -8,34 +8,32 @@ function Card({ cardData, onCardClick }) {
   }
 
   return (
-    <div>
-      <article className="card">
-        <button
-          className="button card__delete-button"
-          type="button"
-          style={{ backgroundImage: `url(${trash})` }}
-        ></button>
-        <img
-          className="card__img"
-          src={cardData.link}
-          alt={cardData.name}
-          onClick={handleClick}
-        />
-        <div className="card__text-container">
-          <h2 className="card__text">{cardData.name}</h2>
-          <div class="card__likes-container">
-            <button
-              className="button card__like-button"
-              type="button"
-              style={{ backgroundImage: `url(${likeButton})` }}
-            ></button>
-            <p class="card__text card__text_likes-number">
-              {cardData.likes.length}
-            </p>
-          </div>
+    <article className="card">
+      <button
+        className="button card__delete-button"
+        type="button"
+        style={{ backgroundImage: `url(${trash})` }}
+      ></button>
+      <img
+        className="card__img"
+        src={cardData.link}
+        alt={cardData.name}
+        onClick={handleClick}
+      />
+      <div className="card__text-container">
+        <h2 className="card__text">{cardData.name}</h2>
+        <div class="card__likes-container">
+          <button
+            className="button card__like-button"
+            type="button"
+            style={{ backgroundImage: `url(${likeButton})` }}
+          ></button>
+          <p class="card__text card__text_likes-number">
+            {cardData.likes.length}
+          </p>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 }
 
