@@ -12,11 +12,14 @@ function Main(props) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getInitialProfile().then((data) => {
-      setUserName(data.name);
-      setUserDescription(data.about);
-      setUserAvatar(data.avatar);
-    });
+    api
+      .getInitialProfile()
+      .then((data) => {
+        setUserName(data.name);
+        setUserDescription(data.about);
+        setUserAvatar(data.avatar);
+      })
+      .catch((err) => console.error(`Problem fetching cards cards: ${err}`));
   }, []);
 
   useEffect(() => {
