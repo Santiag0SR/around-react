@@ -22,13 +22,13 @@ function Card({ cardData, onCardClick }) {
       />
       <div className="card__text-container">
         <h2 className="card__text">{cardData.name}</h2>
-        <div class="card__likes-container">
+        <div className="card__likes-container">
           <button
             className="button card__like-button"
             type="button"
             style={{ backgroundImage: `url(${likeButton})` }}
           ></button>
-          <p class="card__text card__text_likes-number">
+          <p className="card__text card__text_likes-number">
             {cardData.likes.length}
           </p>
         </div>

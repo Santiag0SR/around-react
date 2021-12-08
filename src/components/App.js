@@ -61,13 +61,13 @@ function App() {
       >
         <input
           id="link-input-avatar"
-          class="modal__form-item modal__form-item_type_image-link"
+          className="modal__form-item modal__form-item_type_image-link"
           type="url"
           name="avatar"
           placeholder="Image link"
           required
         />
-        <span id="link-input-avatar-error" class="modal__error"></span>
+        <span id="link-input-avatar-error" className="modal__error"></span>
       </PopupWithForm>
 
       <PopupWithForm
@@ -85,8 +85,8 @@ function App() {
           name="name"
           placeholder="Name"
           required
-          minlength="2"
-          maxlength="40"
+          minLength="2"
+          maxLength="40"
         />
         <span id="name-input-error" className="modal__error"></span>
         <input
@@ -96,8 +96,8 @@ function App() {
           name="about"
           placeholder="About Me"
           required
-          minlength="2"
-          maxlength="200"
+          minLength="2"
+          maxLength="200"
         />
         <span id="about-input-error" className="modal__error"></span>
       </PopupWithForm>
@@ -116,8 +116,8 @@ function App() {
           name="name"
           placeholder="Title"
           required
-          minlength="1"
-          maxlength="40"
+          minLength="1"
+          maxLength="40"
         />
         <span id="title-input-error" className="modal__error"></span>
         <input

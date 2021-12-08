@@ -24,7 +24,6 @@ function Main(props) {
       .getInitialCards()
       .then((data) => {
         setCards(data);
-        console.log(data);
       })
       .catch((err) => console.error(`Problem fetching cards cards: ${err}`));
   }, []);
