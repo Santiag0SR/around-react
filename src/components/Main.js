@@ -19,7 +19,7 @@ function Main(props) {
         setUserDescription(data.about);
         setUserAvatar(data.avatar);
       })
-      .catch((err) => console.error(`Problem fetching cards cards: ${err}`));
+      .catch((err) => console.error(`Problem fetching profile data: ${err}`));
   }, []);
 
   useEffect(() => {
