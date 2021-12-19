@@ -22,7 +22,10 @@
 @import url("./blocks/card/__img/card__img.css");
 @import url("./blocks/card/__like-button/card__like-button.css");
 @import url("./blocks/card/__like-button/__like-button_active/card__like-button_active.css");
+@import url("./blocks/card/__like-button/__like-button_inactive/card__like-button_inactive.css");
 @import url("./blocks/card/__delete-button/card__delete-button.css");
+@import url("./blocks/card/__delete-button/__delete-button_visible/card__delete-button_visible.css");
+@import url("./blocks/card/__delete-button/__delete-button_hidden/card__delete-button_hidden.css");
 @import url("./blocks/card/__likes-container/card__likes-container.css");
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/footer/__author/footer__author.css");

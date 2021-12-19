@@ -15,6 +15,7 @@ function PopupWithForm(props) {
         <form
           className={`modal__form modal__form_type_${props.moldalType}`}
           name={`profile-form_type_${props.moldalType}`}
+          onSubmit={props.onSubmit}
         >
           <h2 className={`modal__text modal__text_type_${props.moldalType}`}>
             {props.modalTitle}

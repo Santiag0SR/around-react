@@ -1,35 +1,52 @@
-import trash from "../images/Trash.svg";
-import likeButton from "../images/like_button.svg";
-import likeButtonActive from "../images/like_button_active.svg";
+import React from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Card({ cardData, onCardClick }) {
+function Card({ card, onCardClick, onCardLike, onCardDelete }) {
+  const user = React.useContext(CurrentUserContext);
+  const isOwn = card.owner._id === user._id;
+  const cardDeleteButtonClassName = `button card__delete-button ${
+    isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
+  }`;
+  const isLiked = card.likes.some((item) => item._id === user._id);
+  const cardLikeButtonClassName = `button card__like-button ${
+    isLiked ? "card__like-button_active" : "card__like-button_inactive"
+  }`;
+
   function handleClick() {
-    onCardClick({ cardData });
+    onCardClick(card);
+  }
+
+  function handleLikeClick() {
+    onCardLike(card);
+  }
+
+  function handleDeleteClick() {
+    onCardDelete(card);
   }
 
   return (
     <article className="card">
       <button
-        className="button card__delete-button"
+        className={cardDeleteButtonClassName}
         type="button"
-        style={{ backgroundImage: `url(${trash})` }}
+        onClick={handleDeleteClick}
       ></button>
       <img
         className="card__img"
-        src={cardData.link}
-        alt={cardData.name}
+        src={card.link}
+        alt={card.name}
         onClick={handleClick}
       />
       <div className="card__text-container">
-        <h2 className="card__text">{cardData.name}</h2>
+        <h2 className="card__text">{card.name}</h2>
         <div className="card__likes-container">
           <button
-            className="button card__like-button"
+            className={cardLikeButtonClassName}
             type="button"
-            style={{ backgroundImage: `url(${likeButton})` }}
+            onClick={handleLikeClick}
           ></button>
           <p className="card__text card__text_likes-number">
-            {cardData.likes.length}
+            {card.likes.length}
           </p>
         </div>
       </div>

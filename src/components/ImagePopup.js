@@ -15,11 +15,11 @@ function ImagePopup(props) {
         <figure className="modal__preview-figure">
           <img
             className="modal__preview-image"
-            src={`${props.selectedCard && props.selectedCard.cardData.link}`}
-            alt={`${props.selectedCard && props.selectedCard.cardData.name}`}
+            src={`${props.selectedCard && props.selectedCard.link}`}
+            alt={`${props.selectedCard && props.selectedCard.name}`}
           />
           <figcaption className="modal__preview-caption">
-            {`${props.selectedCard && props.selectedCard.cardData.name}`}
+            {`${props.selectedCard && props.selectedCard.name}`}
           </figcaption>
         </figure>
       </div>
