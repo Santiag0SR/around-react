@@ -27,10 +27,11 @@ function EditProfilePopup(props) {
       about: description,
     });
   }
+
   return (
     <div>
       <PopupWithForm
-        moldalType={"edit"}
+        modalType={"edit"}
         modalTitle={"Edit Profile"}
         modalButtonText={"Save"}
         closeButtons={props.closeButtons}
@@ -50,7 +51,7 @@ function EditProfilePopup(props) {
           minLength="2"
           maxLength="40"
         />
-        <span id="name-input-error" className="modal__error"></span>
+        <span id="name-input-error" className="modal__error" />
         <input
           value={description}
           onChange={handleDescriptionChange}
@@ -63,9 +64,8 @@ function EditProfilePopup(props) {
           minLength="2"
           maxLength="200"
         />
-        <span id="about-input-error" className="modal__error"></span>
+        <span id="about-input-error" className="modal__error" />
       </PopupWithForm>
-      ;
     </div>
   );
 }

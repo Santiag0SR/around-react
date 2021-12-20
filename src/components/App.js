@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import closeButton from "../images/Close_button.svg";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -16,12 +16,12 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const [currentUser, setCurrentUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
     api
-      .getInitialCards()
+      .getCards()
       .then((data) => {
         setCards(data);
       })
@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     api
-      .getInitialProfile()
+      .getProfile()
       .then((data) => {
         setCurrentUser(data);
       })
@@ -39,12 +39,12 @@ function App() {
 
   function handleAddPlaceSubmit(card) {
     api
-      .fetchCard(card)
+      .createCard(card)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        closeAllPopups();
       })
       .catch((err) => console.error(`Problem adding new card: ${err}`));
-    closeAllPopups();
   }
 
   function handleCardLike(card) {
@@ -53,7 +53,7 @@ function App() {
       .likeCard(card._id, isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((item) => (item._id === card._id ? newCard : item))
         );
       })
       .catch((err) => console.error(`Problem liking card: ${err}`));
@@ -63,25 +63,29 @@ function App() {
     api
       .deleteCard(card._id)
       .then(() => {
-        setCards(cards.filter((state) => state !== card));
+        setCards(cards.filter((item) => item !== card));
       })
       .catch((err) => console.error(`Problem deleting card: ${err}`));
   }
 
   function handleUpdateUser(userData) {
     api
-      .fetchProfileInfo(userData)
-      .then((res) => setCurrentUser(res))
+      .changeProfileInfo(userData)
+      .then((res) => {
+        setCurrentUser(res);
+        closeAllPopups();
+      })
       .catch((err) => console.error(`Problem updating user: ${err}`));
-    closeAllPopups();
   }
 
   function handleUpdateAvatar(userData) {
     api
       .changeProfileAvatar(userData)
-      .then((res) => setCurrentUser(res))
+      .then((res) => {
+        setCurrentUser(res);
+        closeAllPopups();
+      })
       .catch((err) => console.error(`Problem updating avatar: ${err}`));
-    closeAllPopups();
   }
 
   function handleCardClick(card) {

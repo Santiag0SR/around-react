@@ -1,8 +1,10 @@
+import React from "react";
+
 function ImagePopup(props) {
   return (
     <div
       className={`modal modal_type_preview ${
-        props.selectedCard ? "modal_open" : ""
+        props.selectedCard && "modal_open"
       }`}
     >
       <div className="modal__box modal__box_type_preview">
@@ -11,15 +13,15 @@ function ImagePopup(props) {
           type="button"
           style={{ backgroundImage: `url(${props.closeButtons})` }}
           onClick={props.onClose}
-        ></button>
+        />
         <figure className="modal__preview-figure">
           <img
             className="modal__preview-image"
-            src={`${props.selectedCard && props.selectedCard.link}`}
-            alt={`${props.selectedCard && props.selectedCard.name}`}
+            src={props.selectedCard && props.selectedCard.link}
+            alt={props.selectedCard && props.selectedCard.name}
           />
           <figcaption className="modal__preview-caption">
-            {`${props.selectedCard && props.selectedCard.name}`}
+            {props.selectedCard && props.selectedCard.name}
           </figcaption>
         </figure>
       </div>

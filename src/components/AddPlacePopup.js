@@ -49,7 +49,7 @@ function AddPlacePopup(props) {
           minLength="1"
           maxLength="40"
         />
-        <span id="title-input-error" className="modal__error"></span>
+        <span id="title-input-error" className="modal__error" />
         <input
           value={link}
           onChange={handleLinkChange}
@@ -60,9 +60,8 @@ function AddPlacePopup(props) {
           placeholder="Image link"
           required
         />
-        <span id="link-input-error" className="modal__error"></span>
+        <span id="link-input-error" className="modal__error" />
       </PopupWithForm>
-      ;
     </div>
   );
 }

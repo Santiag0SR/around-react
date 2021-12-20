@@ -31,7 +31,7 @@ function Main({
               onClick={onEditAvatarClick}
               type="button"
               style={{ backgroundImage: `url(${editButton})` }}
-            ></button>
+            />
           </div>
           <div className="profile__text-container">
             <h1 className="profile__name">{currentUser.name}</h1>
@@ -40,7 +40,7 @@ function Main({
               type="button"
               style={{ backgroundImage: `url(${editButton})` }}
               onClick={onEditProfileClick}
-            ></button>
+            />
             <p className="profile__about">{currentUser.about}</p>
           </div>
         </div>
@@ -49,7 +49,7 @@ function Main({
           type="button"
           style={{ backgroundImage: `url(${addButton})` }}
           onClick={onAddPlaceClick}
-        ></button>
+        />
       </section>
       <section className="elements">
         {cards.map((card) => (

@@ -2,7 +2,7 @@ function PopupWithForm(props) {
   return (
     <div
       className={`modal modal_type_${props.moldalType} ${
-        props.isOpen ? "modal_open" : ""
+        props.isOpen && "modal_open"
       }`}
     >
       <div className={`modal__box modal__box_type_${props.moldalType}`}>
@@ -11,7 +11,7 @@ function PopupWithForm(props) {
           type="button"
           style={{ backgroundImage: `url(${props.closeButtons})` }}
           onClick={props.onClose}
-        ></button>
+        />
         <form
           className={`modal__form modal__form_type_${props.moldalType}`}
           name={`profile-form_type_${props.moldalType}`}

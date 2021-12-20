@@ -11,19 +11,19 @@ class Api {
     return Promise.reject(`Error ${res.status}`);
   }
 
-  getInitialProfile() {
+  getProfile() {
     return fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers,
     }).then((res) => this._checkErrors(res));
   }
 
-  getInitialCards() {
+  getCards() {
     return fetch(`${this.baseUrl}/cards`, {
       headers: this.headers,
     }).then((res) => this._checkErrors(res));
   }
 
-  fetchCard({ name, link }) {
+  createCard({ name, link }) {
     return fetch(`${this.baseUrl}/cards`, {
       method: "POST",
       headers: this.headers,
@@ -31,7 +31,7 @@ class Api {
     }).then((res) => this._checkErrors(res));
   }
 
-  fetchProfileInfo({ name, about }) {
+  changeProfileInfo({ name, about }) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.headers,

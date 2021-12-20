@@ -30,7 +30,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
         className={cardDeleteButtonClassName}
         type="button"
         onClick={handleDeleteClick}
-      ></button>
+      />
       <img
         className="card__img"
         src={card.link}
@@ -44,7 +44,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
             className={cardLikeButtonClassName}
             type="button"
             onClick={handleLikeClick}
-          ></button>
+          />
           <p className="card__text card__text_likes-number">
             {card.likes.length}
           </p>

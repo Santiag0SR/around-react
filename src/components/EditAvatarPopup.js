@@ -14,6 +14,7 @@ function EditAvatarPopup(props) {
       avatar: avatarRef.current.value,
     });
   }
+
   return (
     <div>
       <PopupWithForm
@@ -34,9 +35,8 @@ function EditAvatarPopup(props) {
           placeholder="Image link"
           required
         />
-        <span id="link-input-avatar-error" className="modal__error"></span>
+        <span id="link-input-avatar-error" className="modal__error" />
       </PopupWithForm>
-      ;
     </div>
   );
 }
